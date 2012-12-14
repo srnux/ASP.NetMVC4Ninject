@@ -42,7 +42,7 @@ namespace PersonRepository
             else
             {
                 // Existing entity
-                //DataContext.Entry(person).State = EntityState.Modified;
+                DataContext.Entry(person).State = EntityState.Modified;
             }
         }
 

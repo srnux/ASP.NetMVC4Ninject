@@ -13,6 +13,7 @@ namespace ASPNETMVCNinject.App_Start
     using System.Reflection;
     using PersonRepository;
     using PersonModel;
+    using MoqPersonRepository;
 
     public static class NinjectWebCommon 
     {
@@ -52,14 +53,14 @@ namespace ASPNETMVCNinject.App_Start
 
         /// <summary>
         /// Load your modules or register your services here!
-        /// 
+        /// Uncomment line 61 to use "real" implementation
         /// </summary>
         /// <param name="kernel">The kernel.</param>
         private static void RegisterServices(IKernel kernel)
         {
             kernel.Load(Assembly.GetExecutingAssembly());
             //kernel.Bind<IRepositoryMethods<Person>>().To<PersonRepository>();
-            kernel.Bind<IRepositoryMethods<Person>>().To<MoqPersonRepository.MoqPersonRepository>();
+            kernel.Bind<IRepositoryMethods<Person>>().To<MoqPersonRepository>();
         }        
     }
 }
